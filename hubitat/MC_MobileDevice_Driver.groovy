@@ -19,6 +19,7 @@
  *    2022-09-11  Simon Burke    Original Creation
   */
 
+public static String mcURLPath() { return "mc"; }
 
 metadata {
 	definition (name: 'MC Mobile Device', namespace: 'simnet', author: 'Simon Burke') {
@@ -28,10 +29,13 @@ metadata {
         capability 'PresenceSensor'
         capability 'AudioVolume'
         capability 'Notification'
+        capability 'Configuration'
+        capability 'Switch'
+        
         
         // Battery Sensor Attributes
         attribute 'battery', 'number'
-        attribute 'batteryStatus', 'string'
+        attribute 'batteryStatus', 'ENUM["Charging", "Discharging", "Idle"]'
         
         //Motion Sensor Attribute
         attribute 'motion', 'ENUM ["inactive", "active"]'
@@ -43,8 +47,16 @@ metadata {
         //Presence Sensor Attribute
         attribute 'presence', 'ENUM ["present", "not present"]'
         
+        //Switch Capability Attribute
+        attribute 'switch', 'ENUM ["on", "off"]'
+        
         //Network Attributes
         attribute 'wifiNetwork', 'string' // Wi-Fi Netowrk SSID the mobile device is currently connected to
+        
+        //Call and Message Attributes
+        attribute 'callStatus', 'ENUM["InCall", "Idle", "unknown"]'
+        attribute 'missedCall', 'ENUM["yes", "no", "unknown"]'
+        attribute 'unreadMessage', 'ENUM["yes", "no", "unknown"]'
         
         // General Attributes
         attribute 'lastUpdated', 'date'
@@ -64,7 +76,7 @@ metadata {
         
         // Audio Volume Capability Commands
         command 'mute'
-        command 'setVolume', [[name:'volumelevel', type: 'NUMBER', description: 'Enter the new volume value (%)' ] ]
+        command 'setVolume', [[name:'volumelevel', type: 'NUMBER', description: 'Enter the new volume value (0-25)' ] ]
         command 'unmute'
         command 'volumeDown'
         command 'volumeUp'
@@ -72,8 +84,18 @@ metadata {
         //Notification Capability Command
         command 'deviceNotification', [[name:'text', type: 'STRING', description: 'Enter the notification text' ] ]
         
-        //Custom Notification command to cancel a notification send to the device
+        //Custom Notification commands
+        //Send Notification with Title Provided
+        command 'customDeviceNotification', [[name:'title', type: 'STRING', description: 'Enter the title for the notification' ], [name:'text', type: 'STRING', description: 'Enter the notification text' ] ]
+        //Cancel a notification sent to the device
         command 'cancelNotification', [[name:'title', type: 'STRING', description: 'Enter the title for the notification to cancel' ] ]
+        
+        //Alarm Commands
+        command 'dismissAlarm', [[name:'label', type: 'STRING', description: 'Enter the label for the alarm to dismiss' ] ]
+        
+        //Switch Capability Commands
+        command 'off'
+        command 'on'
         
         command 'setBrightness', [[name:'brightnessVal', type: 'NUMBER', description: 'Enter the new brightness value (%)' ] ]
         
@@ -93,9 +115,18 @@ metadata {
 	*/
     preferences {
     
+      // Platform and authentication Preferences
+        def CommandMethodOptions = []
+            CommandMethodOptions << ["Tasker"   : "Direct Tasker HTTP Request" ]
+            CommandMethodOptions << ["AutoRemote"  : "AutoRemote Message"]
+            //CommandMethodOptions << ["MacroDroid" : "MacroDroid"   ]
+        
       // Device Preferences
+      input name: "CommandMethod", type: "enum",     title: "Command Method", description: "Method for sending commands to the mobile device", displayDuringSetup: true, required: true, multiple: false, options: CommandMethodOptions, defaultValue: "Tasker"
       input(name: "DeviceIPAddress", type: "string", title:"Mobile Device IP Address", displayDuringSetup: true, defaultValue: "")
-      
+      input(name: "Port", type: "number", title:"Port Number", description: "Port used when sending HTTP calls to the mobile device", displayDuringSetup: true, defaultValue: 1821)
+      input(name: "ARPort", type: "number", title:"Auto-Remote Port Number", description: "Port used when sending Auto-Remote messages to the mobile device", displayDuringSetup: true, defaultValue: 1817)
+              
       input(name: "AppId", type: "number", title:"Maker API App ID", description: "App Id of the Maker API Instance", displayDuringSetup: true, defaultValue: 0)
       input(name: "AccessToken", type: "password", title:"Maker API Access Token", description: "Access Token of the Maker API Instance", displayDuringSetup: true, defaultValue: "")
       input(name: "CloudURL", type: "string", title:"Maker API Cloud URL", description: "Start of the Cloud URL used for Maker API", displayDuringSetup: true, defaultValue: "")
@@ -104,6 +135,8 @@ metadata {
       input(name: "SyncHEMode", type: "bool", title:"Sync HE Mode?", description: "Turn on to send HE mode updates to the mobile device", displayDuringSetup: true, defaultValue: false)
       input(name: "TrackWIFINetwork", type: "bool", title:"Track Mobile Device Wi-Fi Network?", description: "Record Wi-Fi Network SSID of the mobile device (only whitelisted SSID's)", displayDuringSetup: true, defaultValue: false)
       input(name: "WIFINetWhitelist", type: "string", title:"Wi-Fi Network SSID Whitelist", description: "List of Wi-Fi Network SSID's to track, separated by a /", displayDuringSetup: true, defaultValue: "")
+      //input(name: "TrackCallStatus", type: "bool", title:"Track Mobile Device Call Status?", description: "Turn on to track whether the mobile device is in a call or not", displayDuringSetup: true, defaultValue: false)
+      //input(name: "TrackMissedCalls", type: "bool", title:"Track Mobile Device Missed Calls?", description: "Turn on to track whether the mobile device has any missed calls", displayDuringSetup: true, defaultValue: false)
       
       
     }
@@ -119,23 +152,23 @@ void initialized() {
   //sendEvent(name: "batteryStatus", value: "Idle");
 }
 
+//Configure Method
+void configure() {
+}
+
 //Motion Sensor Methods
 void active() {
     sendEvent(name: 'motion', value: 'active');
     debugLog('active: Device reported as being active');
 
-    //Update the lastUpdated attribute value
-    Date lastUpdate = new Date()
-    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+    setLastUpdate();
 }
 
 void inactive() {
     sendEvent(name: 'motion', value: 'inactive');
     infoLog('inactive: Device reported as being inactive');
     
-    //Update the lastUpdated attribute value
-    Date lastUpdate = new Date()
-    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+    setLastUpdate();
 }
 
 //Presence Sensor Methods
@@ -143,18 +176,14 @@ void present() {
     sendEvent(name: 'presence', value: 'present');
     debugLog('present: Device is present');
 
-    //Update the lastUpdated attribute value
-    Date lastUpdate = new Date()
-    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+    setLastUpdate();
 }
 
 void notPresent() {
     sendEvent(name: 'presence', value: 'not present');
     debugLog('notPresent: Device is not present');
 
-    //Update the lastUpdated attribute value
-    Date lastUpdate = new Date()
-    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+    setLastUpdate();
 }
 
 //Battery Sensor Methods
@@ -171,9 +200,8 @@ void setBattery(Number pbattery) {
         //Update the battery and batteryStatus attributes
         sendEvent(name: 'battery',       value: pbattery)
         sendEvent(name: 'batteryStatus', value: vbatteryStatus)
-        //Update the lastUpdated attribute value
-        Date lastUpdate = new Date()
-        sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+        
+        setLastUpdate();
 
         //Reset warning count if there have been previous warnings
         if (state.warningCount > 0) {
@@ -200,27 +228,59 @@ void setBrightness(Number brightnessVal) {
     sendEvent(name: 'brightness', value: brightnessVal);
     infoLog("setBrightness: Device brightness updated, new value = ${brightnessVal}");
     
-    //Update the lastUpdated attribute value
-    Date lastUpdate = new Date()
-    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+    setLastUpdate();
 }
 
 //Audio Volume Methods
-void mute() { }
+void mute() {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("volume/media/mute", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaVolumeMute", ""); }
+}
 
-void setVolume(volumelevel) { }
+void unmute() {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("volume/media/unmute", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaVolumeUnmute", ""); }
+}
 
-void unmute() { }
+void setVolume(volumelevel) { 
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("volume/media/set", "${volumelevel}"); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("setMediaVolume", "${volumelevel}"); }
+}
 
-void volumeDown() { }
+void volumeDown() {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("volume/media/down", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaVolumeDown", ""); }
+}
 
-void volumeUp() { }
+void volumeUp() { 
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("volume/media/up", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaVolumeUp", ""); }
+}
 
 //Notification Methods
 void deviceNotification(String text) {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/notify", "Mobile Controller||${text}"); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("notify", "Mobile Controller||${text}"); }
+}
+
+void customDeviceNotification(String title, String text){
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/notify", "${title}||${text}"); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("notify", "${title}||${text}"); }
 }
 
 void cancelNotification(String title) {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/cancel", title); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("cancelNotification", title); }
+}
+
+//Switch Methods
+void on() {
+    
+}
+
+void off() {
+    
+    
 }
 
 //Wi-Fi Network Methods
@@ -228,17 +288,48 @@ void updateWifiNetwork(String wifiNetwork) {
     sendEvent(name: 'wifiNetwork', value: wifiNetwork);
     infoLog("updateWifiNetwork: Device Wi-Fi Network updated, new value = ${wifiNetwork}");
     
-    //Update the lastUpdated attribute value
-    Date lastUpdate = new Date()
-    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+    setLastUpdate();
+}
+
+def dismissAlarm(String label){
+   sendAutoRemoteCommand("dismissAlarm",label);
 }
 
 //Device Heartbeat
 def deviceHeartbeat() {
  
-    Date lastUpdate = new Date()
-    sendEvent(name: 'heartbeat', value: lastUpdate.format('dd/MM/yyyy HH:mm'));
+    Date heartbeatDate = new Date()
+    sendEvent(name: 'heartbeat', value: heartbeatDate.format('dd/MM/yyyy HH:mm'));
     
+}
+
+//Last Update
+def setLastUpdate() {
+    //Update the lastUpdated attribute value
+    Date lastUpdate = new Date()
+    sendEvent(name: 'lastUpdated', value : lastUpdate.format('dd/MM/yyyy HH:mm'))
+}
+
+def sendTaskerCommand(String path, String body){
+    try {
+        httpPost([uri: "http://${DeviceIPAddress}:${Port}/${mcURLPath()}/${path}", contentType: "application/json", body: "${body}"]) { resp ->
+            debugLog("sendCommand: Command sent.  Response = ${resp.data}")
+        }
+    }
+    catch(Exception e) {
+        errorLog("sendCommand: ${e}");
+    }
+}
+
+def sendAutoRemoteCommand(String command, String value){
+    try {
+        httpGet([uri: "http://${DeviceIPAddress}:${ARPort}/?message=${command}=:=${java.net.URLEncoder.encode(value)}"]) { resp ->
+            debugLog("sendCommand: Command sent.  Response = ${resp.data}")
+        }
+    }
+    catch(Exception e){
+        errorLog("sendAutoRemoteCommand: ${e}");
+    }
 }
 
 #include simnet.logging
