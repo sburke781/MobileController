@@ -109,21 +109,6 @@ def mainPage(){
 	    }
     }
     
-    /*
-    def localUri = getLocalUri()
-    def cloudUri = getCloudUri()
-    
-
-    return dynamicPage(name: "pageMain", install: true,  uninstall: true, refreshInterval:0) {
-        
-        section("Webhooks") {
-            paragraph("<ul><li><strong>Local</strong>: <a href='${localUri}' target='_blank' rel='noopener noreferrer'>${localUri}</a></li></ul>")
-            paragraph("<ul><li><strong>Cloud</strong>: <a href='${cloudUri}' target='_blank' rel='noopener noreferrer'>${cloudUri}</a></li></ul>")
-            
-        }   
-    }    
-    */
-    
 }
 
 def pageMobileDevicesConfig(params) {

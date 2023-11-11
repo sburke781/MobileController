@@ -3,11 +3,22 @@
 	"minimumHEVersion": "2.2.1",
 	"author": "Simon Burke (sburke781)",
 	"version": "0.1.0",
-	"dateReleased": "2022-09-11",
+	"dateReleased": "2023-11-11",
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
-	"releaseNotes": "2022-09-11: 0.1.0 - Initial release of mobile controller device driver, a simple copy of a virtual batter sensor driver",
-	"apps" : [],
+	"releaseNotes": "2022-11-11: 0.1.0 - Initial release",
+	"apps": [
+		{
+		   "id": "568bab8e-5c70-4802-a039-481027904c06",
+		   "name": "Mobile Controller",
+		   "namespace": "simnet",
+		   "location": "https://raw.githubusercontent.com/MobileController/Hubitat/master/MobileController_App.groovy",
+		   "required": true,
+		   "version": "0.1.0",
+		   "primary": true,
+		   "oauth": true
+		}
+	 ],
 	"drivers" : [
 		{
 			"id": "22597029-98db-490b-b8b9-c23b123eXXYY",
