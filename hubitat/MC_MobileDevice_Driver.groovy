@@ -97,6 +97,9 @@ metadata {
         command 'off'
         command 'on'
         
+        //Custom Screen Commands
+        command 'turnScreenOn'
+        command 'turnScreenOff'
         command 'setBrightness', [[name:'brightnessVal', type: 'NUMBER', description: 'Enter the new brightness value (%)' ] ]
         
         //command 'setWifiNetwork', [[name:'wifiNetwork', type: 'STRING', description: 'Enter the new Wi-Fi Network' ] ]
@@ -154,6 +157,19 @@ void initialized() {
 
 //Configure Method
 void configure() {
+    debugLog("Cloud URI: ${parent.getCloudUri()}");
+    debugLog("Local URI: ${parent.getLocalUri()}");
+    debugLog("Access Token: ${parent.state.accessToken}");
+    debugLog("DeviceId: ${device.deviceNetworkId}");
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/hecloudendpoint", parent.getCloudUri()); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_he_cloud_api_endpoint", parent.getCloudUri()); }
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/helocalendpoint", parent.getLocalUri()); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_he_local_api_endpoint", parent.getLocalUri()); }
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/heaccesstoken", parent.state.accessToken); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_he_access_token", parent.state.accessToken); }
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/hedeviceid", "${device.deviceNetworkId}"); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_he_device_id", "${device.deviceNetworkId}"); }
 }
 
 //Motion Sensor Methods
@@ -184,6 +200,13 @@ void notPresent() {
     debugLog('notPresent: Device is not present');
 
     setLastUpdate();
+}
+
+void syncMode(String newMode) {
+    if(SyncHEMode) {
+        if(CommandMethod == "Tasker"){ sendTaskerCommand("mode/record", newMode); }
+        if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mode", newMode); }
+    }
 }
 
 //Battery Sensor Methods
@@ -225,7 +248,11 @@ String getBatteryStatus() { return device.currentValue('batteryStatus') }
 
 //Brightness Methods
 void setBrightness(Number brightnessVal) {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("screen/setBrightness", "${brightnessVal}"); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("setBrightness", "${brightnessVal}"); }
     sendEvent(name: 'brightness', value: brightnessVal);
+    
     infoLog("setBrightness: Device brightness updated, new value = ${brightnessVal}");
     
     setLastUpdate();
@@ -275,12 +302,28 @@ void cancelNotification(String title) {
 
 //Switch Methods
 void on() {
+    sendEvent(name: 'switch', value: 'On');
+    infoLog("on: mobile device turned on");
     
+    setLastUpdate();
 }
 
 void off() {
+    sendEvent(name: 'switch', value: 'Off');
+    infoLog("off: mobile device turned off");
     
-    
+    setLastUpdate();
+}
+
+//Custom Switch Methods
+void turnScreenOn() {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("screen/on", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("screenOn", ""); }
+}
+
+void turnScreenOff() {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("screen/off", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("screenOff", ""); }    
 }
 
 //Wi-Fi Network Methods
