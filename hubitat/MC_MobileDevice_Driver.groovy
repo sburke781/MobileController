@@ -130,9 +130,6 @@ metadata {
       input(name: "Port", type: "number", title:"Port Number", description: "Port used when sending HTTP calls to the mobile device", displayDuringSetup: true, defaultValue: 1821)
       input(name: "ARPort", type: "number", title:"Auto-Remote Port Number", description: "Port used when sending Auto-Remote messages to the mobile device", displayDuringSetup: true, defaultValue: 1817)
               
-      input(name: "AppId", type: "number", title:"Maker API App ID", description: "App Id of the Maker API Instance", displayDuringSetup: true, defaultValue: 0)
-      input(name: "AccessToken", type: "password", title:"Maker API Access Token", description: "Access Token of the Maker API Instance", displayDuringSetup: true, defaultValue: "")
-      input(name: "CloudURL", type: "string", title:"Maker API Cloud URL", description: "Start of the Cloud URL used for Maker API", displayDuringSetup: true, defaultValue: "")
       input(name: "CloudComm", type: "bool", title:"Use Cloud Communications?", description: "Turn on to use cloud communications back to HE when not on Wi-Fi", displayDuringSetup: true, defaultValue: false)
       
       input(name: "SyncHEMode", type: "bool", title:"Sync HE Mode?", description: "Turn on to send HE mode updates to the mobile device", displayDuringSetup: true, defaultValue: false)
@@ -335,7 +332,8 @@ void updateWifiNetwork(String wifiNetwork) {
 }
 
 def dismissAlarm(String label){
-   sendAutoRemoteCommand("dismissAlarm",label);
+   if(CommandMethod == "Tasker"){ sendTaskerCommand("alarm/dismiss", label); }
+   if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("dismissAlarm", label); }
 }
 
 //Device Heartbeat
