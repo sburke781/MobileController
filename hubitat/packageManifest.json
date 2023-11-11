@@ -2,8 +2,8 @@
 	"packageName": "Mobile Controller",
 	"minimumHEVersion": "2.2.1",
 	"author": "Simon Burke (sburke781)",
-	"version": "0.1.0",
-	"dateReleased": "2023-11-11",
+	"version": "0.1.1",
+	"dateReleased": "2023-11-12",
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
 	"releaseNotes": "2022-11-11: 0.1.0 - Initial release",
@@ -12,9 +12,9 @@
 		   "id": "568bab8e-5c70-4802-a039-481027904c06",
 		   "name": "Mobile Controller",
 		   "namespace": "simnet",
-		   "location": "https://raw.githubusercontent.com/MobileController/Hubitat/master/MobileController_App.groovy",
+		   "location": "https://raw.githubusercontent.com/sburke781/MobileController/master/hubitat/MobileController_App.groovy",
 		   "required": true,
-		   "version": "0.1.0",
+		   "version": "0.1.1",
 		   "primary": true,
 		   "oauth": true
 		}
