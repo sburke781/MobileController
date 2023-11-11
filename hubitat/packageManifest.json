@@ -2,11 +2,11 @@
 	"packageName": "Mobile Controller",
 	"minimumHEVersion": "2.2.1",
 	"author": "Simon Burke (sburke781)",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"dateReleased": "2023-11-12",
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
-	"releaseNotes": "2022-11-11: 0.1.0 - Initial release",
+	"releaseNotes": "2022-11-11: 0.1.2 - Initial release",
 	"apps": [
 		{
 		   "id": "568bab8e-5c70-4802-a039-481027904c06",
@@ -27,5 +27,12 @@
 			"location": "https://github.com/sburke781/MobileController/raw/master/hubitat/MC_MobileDevice_Driver.groovy",
 			"required": true
 		}
-	]
+	],
+	"files": [
+		{
+		  "id": "8eb67fd9-1538-4182-b3f1-9440b5418a4b",
+		  "name": "Mobile_Controller.prj.xml",
+		  "location": "https://raw.githubusercontent.com/sburke781/MobileController/master/Tasker/Mobile_Controller.prj.xml"
+		}
+	  ]
 }
