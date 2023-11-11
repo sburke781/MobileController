@@ -15,11 +15,21 @@ preferences {
 }
 
 def installed() {
-    initialize()
+    updated()
 }
 
 def updated() {
-    initialize()
+    log.info "updated: subscribing to mode changes"
+    unsubscribe();
+    subscribe(location, "mode", modeHandler)
+    log.info "Mobile Controller App Updated"
+}
+
+def modeHandler(evt) {
+    log.info "modeHandler: mode changed to ${evt.value}";
+    getChildDevices()?.each { dev ->
+        dev.syncMode(evt.value);
+    }
 }
 
 def initialize() {
@@ -34,27 +44,34 @@ mappings {
 }
 
 def setBattery() { 
-    log.info "setBattery: params = $params"
-    log.info "setBattery: request = $request"
-    log.info "setBattery: request body = $request.body"
-    //log.info "setBattery: Device ID = $request.body.deviceId"
-    //log.info "setBattery: Battery = $request.body.battery"
-    
+    //log.info "setBattery: params = $params"
+    //log.info "setBattery: request = $request"
+    //log.info "setBattery: request body = $request.body"
+    def body = new groovy.json.JsonSlurper().parseText(request.body);
+    //log.info "setBattery: Device ID = $body.deviceId"
+    //log.info "setBattery: Battery = $body.battery"
+    def device = getChildDevices()?.find { it.deviceNetworkId == body.deviceId };
+    device.setBattery(body.battery);
 }
 
 def deviceHeartbeat() {
-    log.info "deviceHeartbeat: params = $params"
-    log.info "deviceHeartbeat: request = $request"
-    log.info "setBattery: request body = $request.body"
-    //log.info "setBattery: Device ID = $request.body.deviceId"
+    //log.info "deviceHeartbeat: params = $params"
+    //log.info "deviceHeartbeat: request = $request"
+    //log.info "deviceHeartbeat: request body = $request.body"
+    def body = new groovy.json.JsonSlurper().parseText(request.body);
+    //log.info "deviceHeartbeat: Device ID = $body.deviceId"
+    def device = getChildDevices()?.find { it.deviceNetworkId == body.deviceId };
+    //log.info "deviceHeartbeat: device DNI = ${device.deviceNetworkId}";
+    
+    device.deviceHeartbeat();
 }
 
 def getLocalUri() {
-    return getFullLocalApiServerUrl() + "/setBattery?access_token=${state.accessToken}"
+    return getFullLocalApiServerUrl();
 }
 
 def getCloudUri() {
-    return "${getApiServerUrl()}/${hubUID}/apps/${app.id}/setBattery?access_token=${state.accessToken}"
+    return "${getApiServerUrl()}/${hubUID}/apps/${app.id}"
 }
 
 def mainPage(){
