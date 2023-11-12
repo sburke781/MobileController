@@ -30,7 +30,7 @@ metadata {
         capability 'AudioVolume'
         capability 'Notification'
         capability 'Configuration'
-        capability 'Switch'
+        //capability 'Switch'
         
         
         // Battery Sensor Attributes
@@ -96,8 +96,8 @@ metadata {
         command 'dismissAlarm', [[name:'label', type: 'STRING', description: 'Enter the label for the alarm to dismiss' ] ]
         
         //Switch Capability Commands
-        command 'off'
-        command 'on'
+        //command 'off'
+        //command 'on'
         
         //Custom Screen Commands
         command 'turnScreenOn'
