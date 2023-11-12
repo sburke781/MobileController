@@ -2,11 +2,11 @@
 	"packageName": "Mobile Controller",
 	"minimumHEVersion": "2.2.1",
 	"author": "Simon Burke (sburke781)",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"dateReleased": "2023-11-12",
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
-	"releaseNotes": "2022-11-11: 0.1.2 - Initial release",
+	"releaseNotes": "2022-11-11: 0.1.3 - Initial release",
 	"bundles": [
 		{
 		   "id": "868bab8e-5c70-4801-a039-491027904c07",

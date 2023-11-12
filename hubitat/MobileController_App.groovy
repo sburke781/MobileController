@@ -132,6 +132,7 @@ def appButtonHandler(btn) {
 
 def createMobileDevice() {
     def dni = "mobileDevice${new Date()}";
-    def newMobileDevice = addChildDevice("simnet", "MC Mobile Device", dni, 1234, ["name": "${newMobileName}", isComponent: false]);
+    def newMobileDevice = addChildDevice("simnet", "Mobile Device", dni, 1234, ["name": "${newMobileName}", isComponent: false]);
     newMobileDevice.updateSetting("DeviceIPAddress",[value: "${newMobileIPAddress}", type: 'string']);
+    
 }

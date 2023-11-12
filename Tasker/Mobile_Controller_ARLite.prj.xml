@@ -68,7 +68,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -76,7 +76,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof101" ve="2">
 		<cdate>1696102307933</cdate>
 		<clp>true</clp>
-		<edate>1699741055684</edate>
+		<edate>1699751696074</edate>
 		<flags>8</flags>
 		<id>101</id>
 		<mid0>99</mid0>
@@ -115,7 +115,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/configuration/helocalendpoint</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Local API Endpoint Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -191,7 +191,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -265,7 +265,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -273,7 +273,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof107" ve="2">
 		<cdate>1699658538960</cdate>
 		<clp>true</clp>
-		<edate>1699658989301</edate>
+		<edate>1699752091197</edate>
 		<flags>8</flags>
 		<id>107</id>
 		<mid0>108</mid0>
@@ -312,7 +312,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/screen/setBrightness</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Screen Brightness Update Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -387,7 +387,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -395,7 +395,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof15" ve="2">
 		<cdate>1692413551370</cdate>
 		<clp>true</clp>
-		<edate>1699659342883</edate>
+		<edate>1699751797659</edate>
 		<flags>8</flags>
 		<id>15</id>
 		<mid0>44</mid0>
@@ -473,7 +473,7 @@ Request ID
 	<Profile sr="prof2" ve="2">
 		<cdate>1661542542534</cdate>
 		<clp>true</clp>
-		<edate>1699658332833</edate>
+		<edate>1699747880090</edate>
 		<flags>8</flags>
 		<id>2</id>
 		<mid0>3</mid0>
@@ -540,7 +540,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -548,7 +548,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof20" ve="2">
 		<cdate>1661542542534</cdate>
 		<clp>true</clp>
-		<edate>1699683261001</edate>
+		<edate>1699751266083</edate>
 		<flags>8</flags>
 		<id>20</id>
 		<mid0>22</mid0>
@@ -615,7 +615,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -690,7 +690,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -765,7 +765,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -840,7 +840,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -915,7 +915,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -990,7 +990,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -998,7 +998,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof42" ve="2">
 		<cdate>1691099980643</cdate>
 		<clp>true</clp>
-		<edate>1699341108516</edate>
+		<edate>1699752484256</edate>
 		<flags>8</flags>
 		<id>42</id>
 		<mid0>27</mid0>
@@ -1014,7 +1014,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof46" ve="2">
 		<cdate>1692413551370</cdate>
 		<clp>true</clp>
-		<edate>1699071378427</edate>
+		<edate>1699751806223</edate>
 		<flags>8</flags>
 		<id>46</id>
 		<mid0>45</mid0>
@@ -1053,7 +1053,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/notifications/cancel</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Notification Cancellation Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1062,7 +1062,7 @@ Request ID
 	<Profile sr="prof55" ve="2">
 		<cdate>1696102307933</cdate>
 		<clp>true</clp>
-		<edate>1699652190670</edate>
+		<edate>1699751767713</edate>
 		<flags>8</flags>
 		<id>55</id>
 		<mid0>56</mid0>
@@ -1101,7 +1101,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/configuration/hedeviceid</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Device Id Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1127,7 +1127,7 @@ Request ID
 	<Profile sr="prof61" ve="2">
 		<cdate>1696102307933</cdate>
 		<clp>true</clp>
-		<edate>1699652143518</edate>
+		<edate>1699751748702</edate>
 		<flags>8</flags>
 		<id>61</id>
 		<mid0>60</mid0>
@@ -1166,7 +1166,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/configuration/heaccesstoken</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Access Token Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1241,7 +1241,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -1249,7 +1249,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof64" ve="2">
 		<cdate>1696704943295</cdate>
 		<clp>true</clp>
-		<edate>1699656998154</edate>
+		<edate>1699751791249</edate>
 		<flags>8</flags>
 		<id>64</id>
 		<mid0>65</mid0>
@@ -1288,7 +1288,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/mode/record</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Mode Update Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1297,7 +1297,7 @@ Request ID
 	<Profile sr="prof66" ve="2">
 		<cdate>1696705320682</cdate>
 		<clp>true</clp>
-		<edate>1696720633847</edate>
+		<edate>1699751819884</edate>
 		<flags>8</flags>
 		<id>66</id>
 		<mid0>67</mid0>
@@ -1336,7 +1336,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/alarm/dismiss</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Dismiss Alarm Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1345,7 +1345,7 @@ Request ID
 	<Profile sr="prof68" ve="2">
 		<cdate>1696102307933</cdate>
 		<clp>true</clp>
-		<edate>1699741063249</edate>
+		<edate>1699751759363</edate>
 		<flags>8</flags>
 		<id>68</id>
 		<mid0>69</mid0>
@@ -1384,7 +1384,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/configuration/hecloudendpoint</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Cloud API Endpoint Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1460,7 +1460,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -1468,7 +1468,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof75" ve="2">
 		<cdate>1696715239675</cdate>
 		<clp>true</clp>
-		<edate>1696715399059</edate>
+		<edate>1699751812552</edate>
 		<flags>8</flags>
 		<id>75</id>
 		<mid0>74</mid0>
@@ -1507,7 +1507,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/notifications/copy</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Notification Copy Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1582,7 +1582,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -1590,7 +1590,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof78" ve="2">
 		<cdate>1696716031060</cdate>
 		<clp>true</clp>
-		<edate>1699081463937</edate>
+		<edate>1699751853053</edate>
 		<flags>8</flags>
 		<id>78</id>
 		<mid0>77</mid0>
@@ -1629,7 +1629,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/donotdisturb</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Do Not Disturb Update Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1638,7 +1638,7 @@ Request ID
 	<Profile sr="prof80" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699076629361</edate>
+		<edate>1699751880957</edate>
 		<flags>8</flags>
 		<id>80</id>
 		<mid0>79</mid0>
@@ -1677,7 +1677,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/volume/ring</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Ring Volume Update Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1686,7 +1686,7 @@ Request ID
 	<Profile sr="prof83" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699079883138</edate>
+		<edate>1699751935102</edate>
 		<flags>8</flags>
 		<id>83</id>
 		<mid0>81</mid0>
@@ -1725,7 +1725,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/volume/media/up</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Media Up Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1801,7 +1801,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -1809,7 +1809,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof85" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699079905058</edate>
+		<edate>1699751956987</edate>
 		<flags>8</flags>
 		<id>85</id>
 		<mid0>82</mid0>
@@ -1848,7 +1848,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/volume/media/down</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Media Down Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1924,7 +1924,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -1932,7 +1932,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof9" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699079943004</edate>
+		<edate>1699751907202</edate>
 		<flags>8</flags>
 		<id>9</id>
 		<mid0>23</mid0>
@@ -1971,7 +1971,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/volume/media/set</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Media Volume Update Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -1980,7 +1980,7 @@ Request ID
 	<Profile sr="prof90" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699080125646</edate>
+		<edate>1699751980123</edate>
 		<flags>8</flags>
 		<id>90</id>
 		<mid0>88</mid0>
@@ -2019,7 +2019,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/volume/media/mute</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Media Mute Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -2095,7 +2095,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -2103,7 +2103,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof92" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699658279293</edate>
+		<edate>1699752003572</edate>
 		<flags>8</flags>
 		<id>92</id>
 		<mid0>89</mid0>
@@ -2142,7 +2142,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/volume/media/unmute</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Media Unmute Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -2218,7 +2218,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -2226,7 +2226,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof95" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699659675749</edate>
+		<edate>1699752031341</edate>
 		<flags>8</flags>
 		<id>95</id>
 		<mid0>28</mid0>
@@ -2265,7 +2265,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/screen/on</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Screen On Received" }</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -2274,7 +2274,7 @@ Request ID
 	<Profile sr="prof97" ve="2">
 		<cdate>1696716273428</cdate>
 		<clp>true</clp>
-		<edate>1699658976460</edate>
+		<edate>1699752063796</edate>
 		<flags>8</flags>
 		<id>97</id>
 		<mid0>96</mid0>
@@ -2313,7 +2313,7 @@ Request ID
 			<Int sr="arg1" val="1821"/>
 			<Str sr="arg2" ve="3">POST</Str>
 			<Str sr="arg3" ve="3">/mc/screen/off</Str>
-			<Str sr="arg4" ve="3"/>
+			<Str sr="arg4" ve="3">{ "status": "Screen Off Received"}</Str>
 			<Int sr="arg5" val="10"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
@@ -2389,7 +2389,7 @@ Way the message was sent (BT, Wifi, GCM)
 					<tempvar-type>java.lang.String</tempvar-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
 			<Int sr="arg3" val="1"/>
 		</Event>
@@ -2397,8 +2397,8 @@ Way the message was sent (BT, Wifi, GCM)
 	<Project sr="proj0" ve="2">
 		<cdate>1619843149338</cdate>
 		<name>Mobile Controller</name>
-		<pids>70,37,62,106,55,86,83,80,85,16,29,61,46,101,9,15,84,109,41,107,66,6,98,91,20,105,2,75,34,90,78,95,42,18,68,64,92,93,32,76,97,10</pids>
-		<tids>27,3,82,108,44,65,79,71,17,74,14,60,89,33,28,63,56,99,8,81,31,96,38,100,22,50,19,23,36,35,49,40,88,77,45,73,69,67,51</tids>
+		<pids>64,105,93,109,46,91,42,86,95,34,92,55,37,2,66,75,106,6,16,68,29,80,84,18,98,41,32,101,85,61,97,9,15,90,20,83,62,107,78,70,10,76</pids>
+		<tids>36,89,99,108,69,31,65,56,19,45,71,60,96,100,77,63,27,14,35,17,23,22,88,51,44,74,50,28,3,8,82,33,73,79,81,38,49,67,40</tids>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
 			<exportval>Unknown</exportval>
@@ -2703,7 +2703,7 @@ Only available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/
 					<plugintypeid-type>java.lang.String</plugintypeid-type>
 				</Vals>
 			</Bundle>
-			<Str sr="arg1" ve="3">com.joaomgcd.autoremote</Str>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
 			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigWifiService</Str>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="1"/>
@@ -2842,7 +2842,7 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 	</Task>
 	<Task sr="task27">
 		<cdate>1691098448607</cdate>
-		<edate>1699341108516</edate>
+		<edate>1699752484256</edate>
 		<id>27</id>
 		<nme>🌐 Capture Current Wi-Fi SSID</nme>
 		<pri>100</pri>
