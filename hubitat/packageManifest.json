@@ -21,9 +21,9 @@
 	"drivers" : [
 		{
 			"id": "22597029-98db-490b-b8b9-c23b123eXXYY",
-			"name": "Mobile Controller Driver",
+			"name": "Mobile Device Driver",
 			"namespace": "simnet",
-			"location": "https://github.com/sburke781/MobileController/raw/master/hubitat/MC_MobileDevice_Driver.groovy",
+			"location": "https://github.com/sburke781/MobileController/raw/master/hubitat/MobileDevice_Driver.groovy",
 			"required": true
 		}
 	],
@@ -32,6 +32,11 @@
 		  "id": "8eb67fd9-1538-4182-b3f1-9440b5418a4b",
 		  "name": "Mobile_Controller.prj.xml",
 		  "location": "https://raw.githubusercontent.com/sburke781/MobileController/master/Tasker/Mobile_Controller.prj.xml"
-		}
+		},
+		{
+			"id": "9db67dd9-1638-4192-b3f1-9440b5418a5c",
+			"name": "Mobile_Controller_ARLite.prj.xml",
+			"location": "https://raw.githubusercontent.com/sburke781/MobileController/master/Tasker/Mobile_Controller_ARLite.prj.xml"
+		  }
 	  ]
 }
