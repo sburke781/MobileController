@@ -7,26 +7,15 @@
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
 	"releaseNotes": "2022-11-11: 0.1.2 - Initial release",
-	"apps": [
+	"bundles": [
 		{
-		   "id": "568bab8e-5c70-4802-a039-481027904c06",
+		   "id": "868bab8e-5c70-4801-a039-491027904c07",
 		   "name": "Mobile Controller",
 		   "namespace": "simnet",
-		   "location": "https://raw.githubusercontent.com/sburke781/MobileController/master/hubitat/MobileController_App.groovy",
-		   "required": true,
-		   "primary": true,
-		   "oauth": true
+		   "location": "https://raw.githubusercontent.com/sburke781/MobileController/master/hubitat/MobileController.zip",
+		   "required": true
 		}
 	 ],
-	"drivers" : [
-		{
-			"id": "22597029-98db-490b-b8b9-c23b123eXXYY",
-			"name": "Mobile Device Driver",
-			"namespace": "simnet",
-			"location": "https://github.com/sburke781/MobileController/raw/master/hubitat/MobileDevice_Driver.groovy",
-			"required": true
-		}
-	],
 	"files": [
 		{
 		  "id": "8eb67fd9-1538-4182-b3f1-9440b5418a4b",
