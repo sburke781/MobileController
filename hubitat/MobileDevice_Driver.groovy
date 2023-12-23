@@ -52,10 +52,12 @@ metadata {
         
         //Network Attributes
         //attribute 'wifiNetwork', 'string' // Wi-Fi Netowrk SSID the mobile device is currently connected to
+        attribute 'wifiGroup', 'string'  // Name for the group the current SSID sits in, e.g. HOME, WORK, etc
+        
         
         //Call and Message Attributes
         /*
-        attribute 'callStatus', 'ENUM["InCall", "Idle", "unknown"]'
+        attribute 'callStatus', 'ENUM["Incoming", "InCall", "Idle", "unknown"]'
         attribute 'missedCall', 'ENUM["yes", "no", "unknown"]'
         attribute 'unreadMessage', 'ENUM["yes", "no", "unknown"]'
         */
@@ -104,8 +106,11 @@ metadata {
         command 'turnScreenOff'
         command 'setBrightness', [[name:'brightnessVal', type: 'NUMBER', description: 'Enter the new brightness value (%)' ] ]
         
-        //command 'setWifiNetwork', [[name:'wifiNetwork', type: 'STRING', description: 'Enter the new Wi-Fi Network' ] ]
+        command 'configureHomeWifiList', [[name:'ssidList', type: 'STRING', description: 'List of SSIDs to track under the HOME Group, separated by a /' ] ]
+        command 'configureAltWifiList',  [[name:'ssidList', type: 'STRING', description: 'List of SSIDs to track under the ALTERNATE Group, separated by a /' ] ]
         command 'deviceHeartbeat'
+        
+        
     }    
     
     preferences {
@@ -126,7 +131,9 @@ metadata {
       
       input(name: "SyncHEMode", type: "bool", title:"Sync HE Mode?", description: "Turn on to send HE mode updates to the mobile device", displayDuringSetup: true, defaultValue: false)
       //input(name: "TrackWIFINetwork", type: "bool", title:"Track Mobile Device Wi-Fi Network?", description: "Record Wi-Fi Network SSID of the mobile device (only whitelisted SSID's)", displayDuringSetup: true, defaultValue: false)
-      //input(name: "WIFINetWhitelist", type: "string", title:"Wi-Fi Network SSID Whitelist", description: "List of Wi-Fi Network SSID's to track, separated by a /", displayDuringSetup: true, defaultValue: "")
+      //input(name: "HomeWifiList", type: "string", title:"Home Wi-Fi Network SSID List", description: "List of SSID's to track under the HOME Group, separated by a /", displayDuringSetup: true, defaultValue: "")
+      //input(name: "AltWifiList", type: "string", title:"Alternate Wi-Fi Network SSID List", description: "List of SSID's to track under the Alternate Group, separated by a /", displayDuringSetup: true, defaultValue: "")
+      
       //input(name: "TrackCallStatus", type: "bool", title:"Track Mobile Device Call Status?", description: "Turn on to track whether the mobile device is in a call or not", displayDuringSetup: true, defaultValue: false)
       //input(name: "TrackMissedCalls", type: "bool", title:"Track Mobile Device Missed Calls?", description: "Turn on to track whether the mobile device has any missed calls", displayDuringSetup: true, defaultValue: false)
       
@@ -160,6 +167,30 @@ void configure() {
     if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_he_access_token", parent.state.accessToken); }
     if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/hedeviceid", "${device.deviceNetworkId}"); }
     if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_he_device_id", "${device.deviceNetworkId}"); }
+}
+
+// Send Wifi Networks considered part of the Home network
+def configureHomeWifiList(String ssidList) {
+    
+  // Send Home Wifi SSID List
+  if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/homewifilist", "${ssidList}"); }
+  if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_home_wifi_list", "${ssidList}"); }   
+}
+
+// Send Wifi Networks considered part of the Alternate network, e.g. Work
+def configureAltWifiList(String ssidList) {
+    
+  // Send Alternate Wifi SSID List
+  if(CommandMethod == "Tasker"){ sendTaskerCommand("configuration/altwifilist", "${ssidList}"); }
+  if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mc_alt_wifi_list", "${ssidList}"); }   
+}
+
+// Network methods
+void reportWifiGroup(String groupName) {
+    sendEvent(name: 'wifiGroup', value: groupName);
+    debugLog("reportWifiGroup: Device is now on the ${groupName} network");
+
+    setLastUpdate();
 }
 
 //Motion Sensor Methods

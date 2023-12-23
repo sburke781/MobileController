@@ -2,7 +2,7 @@
 	<Profile sr="prof10" ve="2">
 		<cdate>1625018332214</cdate>
 		<clp>true</clp>
-		<edate>1699658327374</edate>
+		<edate>1701566098121</edate>
 		<flags>8</flags>
 		<id>10</id>
 		<mid0>8</mid0>
@@ -392,6 +392,128 @@ Way the message was sent (BT, Wifi, GCM)
 			<Int sr="arg3" val="1"/>
 		</Event>
 	</Profile>
+	<Profile sr="prof114" ve="2">
+		<cdate>1699905466469</cdate>
+		<clp>true</clp>
+		<edate>1699905606776</edate>
+		<flags>8</flags>
+		<id>114</id>
+		<mid0>115</mid0>
+		<nme>⚙️ Home Wifi List</nme>
+		<Event sr="con0" ve="2">
+			<code>2089</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_request_body
+Body
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_request_files()
+Files
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_request_multipart_names()
+Files
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_request_multipart_types()
+Files
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_request_multipart_values()
+Files
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_request_headers()
+Headers
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;%http_request_ip_address_v4
+IP Address v4
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;%http_request_method
+Method
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;%http_request_path
+Path
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;%http_request_port
+Port
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;%http_request_id
+Request ID
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1821"/>
+			<Str sr="arg2" ve="3">POST</Str>
+			<Str sr="arg3" ve="3">/mc/configuration/homewifilist</Str>
+			<Str sr="arg4" ve="3">{ "status": "Home Wifi List Received" }</Str>
+			<Int sr="arg5" val="10"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+		</Event>
+	</Profile>
+	<Profile sr="prof116" ve="2">
+		<cdate>1699905643895</cdate>
+		<clp>true</clp>
+		<edate>1699905726742</edate>
+		<flags>8</flags>
+		<id>116</id>
+		<mid0>117</mid0>
+		<nme>⚙️ AR - Home Wifi List</nme>
+		<Event sr="con0" ve="2">
+			<code>714870134</code>
+			<pri>0</pri>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<com.twofortyfouram.locale.intent.extra.BLURB>mc_home_wifi_list</com.twofortyfouram.locale.intent.extra.BLURB>
+					<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>
+					<commparamsvar>&lt;null&gt;</commparamsvar>
+					<commparamsvar-type>java.lang.String</commparamsvar-type>
+					<message>mc_home_wifi_list</message>
+					<message-type>java.lang.String</message-type>
+					<messagecaseinsensitive>false</messagecaseinsensitive>
+					<messagecaseinsensitive-type>java.lang.Boolean</messagecaseinsensitive-type>
+					<messageexact>false</messageexact>
+					<messageexact-type>java.lang.Boolean</messageexact-type>
+					<messageregex>false</messageregex>
+					<messageregex-type>java.lang.Boolean</messageregex-type>
+					<messagevar>&lt;null&gt;</messagevar>
+					<messagevar-type>java.lang.String</messagevar-type>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>true</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED>
+					<net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>java.lang.Boolean</net.dinglisch.android.tasker.EXTRA_NSR_DEPRECATED-type>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%arcomm
+Whole of the text to the right of =:=
+Whole of the text to the right of =:=&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%arfiles()
+Files
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%armessage
+The whole received AutoRemote message.
+The whole received AutoRemote message.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%arpar()
+Single words to the left of =:=
+Single words to the left of =:=&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%arsenderbtmac
+Sender Bluetooth Mac Address
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%arsenderid
+Sender Id
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;%arsenderlocalip
+Sender Local IP
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES6&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;%arsendername
+Sender Name
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES7&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;%arsenderpublicip
+Sender Public IP
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES8&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;%arsendertype
+Sender Type
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES9&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;%artime
+Current Time
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES10&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES11&gt;%arvia
+Way the message was sent (BT, Wifi, GCM)
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES11&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+					<net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT>0</net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT>
+					<net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT-type>java.lang.Integer</net.dinglisch.android.tasker.extras.REQUESTED_TIMEOUT-type>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>message plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>
+					<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>
+					<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>
+					<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>
+					<plugininstanceid>50cb9277-5bf3-44df-8b30-9bf3911adbb6</plugininstanceid>
+					<plugininstanceid-type>java.lang.String</plugininstanceid-type>
+					<plugintypeid>com.joaomgcd.autoremote.IntentRemoteEvent</plugintypeid>
+					<plugintypeid-type>java.lang.String</plugintypeid-type>
+					<tempvar>&lt;null&gt;</tempvar>
+					<tempvar-type>java.lang.String</tempvar-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">com.joaomgcd.autoremote.lite</Str>
+			<Str sr="arg2" ve="3">com.joaomgcd.autoremote.activity.ActivityConfigConditionTaskerEvent</Str>
+			<Int sr="arg3" val="1"/>
+		</Event>
+	</Profile>
 	<Profile sr="prof15" ve="2">
 		<cdate>1692413551370</cdate>
 		<clp>true</clp>
@@ -461,7 +583,7 @@ Request ID
 	<Profile sr="prof18" ve="2">
 		<cdate>1630145008613</cdate>
 		<clp>true</clp>
-		<edate>1699741407684</edate>
+		<edate>1702323306791</edate>
 		<flags>8</flags>
 		<id>18</id>
 		<mid0>19</mid0>
@@ -698,7 +820,7 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof32" ve="2">
 		<cdate>1661542542534</cdate>
 		<clp>true</clp>
-		<edate>1699652167464</edate>
+		<edate>1699905613005</edate>
 		<flags>8</flags>
 		<id>32</id>
 		<mid0>33</mid0>
@@ -920,6 +1042,18 @@ Way the message was sent (BT, Wifi, GCM)
 			<Int sr="arg3" val="1"/>
 		</Event>
 	</Profile>
+	<Profile sr="prof4" ve="2">
+		<cdate>1630145008613</cdate>
+		<clp>true</clp>
+		<edate>1702477731065</edate>
+		<flags>8</flags>
+		<id>4</id>
+		<mid0>7</mid0>
+		<nme>🔋Battery Level Notification</nme>
+		<Event sr="con0" ve="2">
+			<code>203</code>
+		</Event>
+	</Profile>
 	<Profile sr="prof41" ve="2">
 		<cdate>1661542542534</cdate>
 		<clp>true</clp>
@@ -998,14 +1132,16 @@ Way the message was sent (BT, Wifi, GCM)
 	<Profile sr="prof42" ve="2">
 		<cdate>1691099980643</cdate>
 		<clp>true</clp>
-		<edate>1699752484256</edate>
+		<edate>1699910048867</edate>
 		<flags>8</flags>
 		<id>42</id>
 		<mid0>27</mid0>
-		<nme>🌐 Report Wi-Fi SSID</nme>
+		<mid1>113</mid1>
+		<nme>🌐 Home Wi-Fi Connected</nme>
 		<State sr="con0" ve="2">
+			<cname>🌐 Home Wifi Connected</cname>
 			<code>160</code>
-			<Str sr="arg0" ve="3">SIMNET/SIMNET5G</Str>
+			<Str sr="arg0" ve="3">%mc_wifi_home_list</Str>
 			<Str sr="arg1" ve="3"/>
 			<Str sr="arg2" ve="3"/>
 			<Int sr="arg3" val="2"/>
@@ -1062,7 +1198,7 @@ Request ID
 	<Profile sr="prof55" ve="2">
 		<cdate>1696102307933</cdate>
 		<clp>true</clp>
-		<edate>1699751767713</edate>
+		<edate>1700112956058</edate>
 		<flags>8</flags>
 		<id>55</id>
 		<mid0>56</mid0>
@@ -1110,7 +1246,7 @@ Request ID
 	<Profile sr="prof6" ve="2">
 		<cdate>1691095771744</cdate>
 		<clp>true</clp>
-		<edate>1699741406900</edate>
+		<edate>1701783226644</edate>
 		<flags>8</flags>
 		<id>6</id>
 		<mid0>14</mid0>
@@ -1127,7 +1263,7 @@ Request ID
 	<Profile sr="prof61" ve="2">
 		<cdate>1696102307933</cdate>
 		<clp>true</clp>
-		<edate>1699751748702</edate>
+		<edate>1699905396286</edate>
 		<flags>8</flags>
 		<id>61</id>
 		<mid0>60</mid0>
@@ -1297,7 +1433,7 @@ Request ID
 	<Profile sr="prof66" ve="2">
 		<cdate>1696705320682</cdate>
 		<clp>true</clp>
-		<edate>1699751819884</edate>
+		<edate>1701566438375</edate>
 		<flags>8</flags>
 		<id>66</id>
 		<mid0>67</mid0>
@@ -2397,8 +2533,8 @@ Way the message was sent (BT, Wifi, GCM)
 	<Project sr="proj0" ve="2">
 		<cdate>1619843149338</cdate>
 		<name>Mobile Controller</name>
-		<pids>64,105,93,109,46,91,42,86,95,34,92,55,37,2,66,75,106,6,16,68,29,80,84,18,98,41,32,101,85,61,97,9,15,90,20,83,62,107,78,70,10,76</pids>
-		<tids>36,89,99,108,69,31,65,56,19,45,71,60,96,100,77,63,27,14,35,17,23,22,88,51,44,74,50,28,3,8,82,33,73,79,81,38,49,67,40</tids>
+		<pids>91,2,83,97,32,80,78,9,4,18,85,64,109,46,101,86,76,75,20,70,29,55,90,10,66,16,93,116,84,62,107,105,106,114,6,34,68,95,92,42,61,41,98,37,15</pids>
+		<tids>45,49,27,22,82,3,14,38,88,73,63,108,79,96,28,65,81,89,115,44,117,19,31,77,36,60,67,113,99,8,71,23,74,100,40,17,51,33,7,50,56,35,69</tids>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
 			<exportval>Unknown</exportval>
@@ -2425,6 +2561,61 @@ Way the message was sent (BT, Wifi, GCM)
 			<pvn>%mc_he_device_id</pvn>
 			<pvt>n</pvt>
 			<pvv>-1</pvv>
+			<strout>true</strout>
+		</ProfileVariable>
+		<ProfileVariable sr="pv10">
+			<clearout>false</clearout>
+			<exportval></exportval>
+			<immutable>false</immutable>
+			<pvci>true</pvci>
+			<pvd></pvd>
+			<pvdn>List of Wifi SSIDs considered as part of the home network, separated by /</pvdn>
+			<pvid>1</pvid>
+			<pvit>pj</pvit>
+			<pvn>%mc_wifi_home_list</pvn>
+			<pvt>t</pvt>
+			<strout>false</strout>
+		</ProfileVariable>
+		<ProfileVariable sr="pv11">
+			<clearout>false</clearout>
+			<exportval>no</exportval>
+			<immutable>false</immutable>
+			<pvci>true</pvci>
+			<pvd></pvd>
+			<pvdn>Track Wi-Fi Connection?</pvdn>
+			<pvid>1</pvid>
+			<pvit>pj</pvit>
+			<pvn>%mc_track_wifi</pvn>
+			<pvt>yn</pvt>
+			<pvv>no</pvv>
+			<strout>true</strout>
+		</ProfileVariable>
+		<ProfileVariable sr="pv12">
+			<clearout>false</clearout>
+			<exportval>20</exportval>
+			<immutable>false</immutable>
+			<pvci>true</pvci>
+			<pvd>Enter the battery percentage (0-100) where a low battery notification will be displayed</pvd>
+			<pvdn>Low Battery Level Percentage</pvdn>
+			<pvid>1</pvid>
+			<pvit>pj</pvit>
+			<pvn>%mc_battery_low</pvn>
+			<pvt>n</pvt>
+			<pvv>20</pvv>
+			<strout>true</strout>
+		</ProfileVariable>
+		<ProfileVariable sr="pv13">
+			<clearout>false</clearout>
+			<exportval>80</exportval>
+			<immutable>false</immutable>
+			<pvci>true</pvci>
+			<pvd>Enter the battery percentage (0-100) where a high battery notification will be displayed</pvd>
+			<pvdn>High Battery Level Percentage</pvdn>
+			<pvid>1</pvid>
+			<pvit>pj</pvit>
+			<pvn>%mc_battery_high</pvn>
+			<pvt>n</pvt>
+			<pvv>80</pvv>
 			<strout>true</strout>
 		</ProfileVariable>
 		<ProfileVariable sr="pv2">
@@ -2460,10 +2651,10 @@ Way the message was sent (BT, Wifi, GCM)
 			<immutable>false</immutable>
 			<pvci>true</pvci>
 			<pvd></pvd>
-			<pvdn>Current Wi-Fi SSID</pvdn>
+			<pvdn>Current Wi-Fi SSID for tracked Wi-Fi Networks</pvdn>
 			<pvid>1</pvid>
 			<pvit>pj</pvit>
-			<pvn>%mc_wifi_ssid</pvn>
+			<pvn>%mc_current_wifi_ssid</pvn>
 			<pvt>t</pvt>
 			<strout>true</strout>
 		</ProfileVariable>
@@ -2569,14 +2760,126 @@ Way the message was sent (BT, Wifi, GCM)
 			<Int sr="arg3" val="0"/>
 		</Action>
 	</Task>
+	<Task sr="task113">
+		<cdate>1699902467496</cdate>
+		<edate>1699910048867</edate>
+		<id>113</id>
+		<nme>Clear Current Wifi SSID</nme>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<label>Tracking Wifi?</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%mc_track_wifi</lhs>
+					<op>0</op>
+					<rhs>yes</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%mc_current_wifi_ssid</Str>
+			<Str sr="arg1" ve="3"> </Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%mc_use_cloud</Str>
+			<Str sr="arg1" ve="3">yes</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>339</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg10" val="0"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">%mc_he_cloud_api_endpoint/reportWifiGroup?access_token=%mc_he_access_token</Str>
+			<Str sr="arg3" ve="3">Content-Type:application/json</Str>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3">{ "deviceId": "%mc_he_device_id", "wifiGroup": "AWAY" }</Str>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="30"/>
+			<Int sr="arg9" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%mc_allow_cloud</lhs>
+					<op>0</op>
+					<rhs>yes</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+	</Task>
+	<Task sr="task115">
+		<cdate>1699905483431</cdate>
+		<edate>1699905523839</edate>
+		<id>115</id>
+		<nme>⚙️ Set Home Wifi List</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%mc_wifi_home_list</Str>
+			<Str sr="arg1" ve="3">%http_request_body</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task117">
+		<cdate>1699905660181</cdate>
+		<edate>1699905705125</edate>
+		<id>117</id>
+		<nme>⚙️ AR - Set Home Wifi List</nme>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%mc_wifi_home_list</Str>
+			<Str sr="arg1" ve="3">%arcomm</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+	</Task>
 	<Task sr="task14">
 		<cdate>1691095821744</cdate>
-		<edate>1699740685978</edate>
+		<edate>1701783226644</edate>
 		<id>14</id>
 		<nme>❤️ Device Heartbeat</nme>
 		<pri>6</pri>
 		<Action sr="act0" ve="7">
 			<code>339</code>
+			<label>Cloud</label>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
@@ -2623,6 +2926,7 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 		</Action>
 		<Action sr="act1" ve="7">
 			<code>339</code>
+			<label>Local</label>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
@@ -2653,6 +2957,13 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Str sr="arg7" ve="3"/>
 			<Int sr="arg8" val="30"/>
 			<Int sr="arg9" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%mc_use_cloud</lhs>
+					<op>0</op>
+					<rhs>no</rhs>
+				</Condition>
+			</ConditionList>
 		</Action>
 	</Task>
 	<Task sr="task17">
@@ -2711,58 +3022,13 @@ Only available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/
 	</Task>
 	<Task sr="task19">
 		<cdate>1630145029686</cdate>
-		<edate>1699661198041</edate>
+		<edate>1702323306791</edate>
 		<id>19</id>
 		<nme>🔋Report Battery Level</nme>
 		<pri>6</pri>
 		<Action sr="act0" ve="7">
 			<code>339</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
-Cookies
-The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
-Data
-Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
-File Output
-Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
-Response Code
-The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
-Response Headers
-The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
-Response Length
-The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg10" val="0"/>
-			<Int sr="arg11" val="0"/>
-			<Int sr="arg12" val="1"/>
-			<Str sr="arg2" ve="3">%mc_he_local_api_endpoint/setBattery?access_token=%mc_he_access_token</Str>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3">{ "deviceId": "%mc_he_device_id", "battery": %BATT }</Str>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="30"/>
-			<Int sr="arg9" val="0"/>
-			<ConditionList sr="if">
-				<bool0>Or</bool0>
-				<Condition sr="c0" ve="3">
-					<lhs>%mc_allow_cloud</lhs>
-					<op>0</op>
-					<rhs>no</rhs>
-				</Condition>
-				<Condition sr="c1" ve="3">
-					<lhs>%mc_use_cloud</lhs>
-					<op>0</op>
-					<rhs>no</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>339</code>
+			<label>Cloud</label>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
@@ -2807,6 +3073,47 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 				</Condition>
 			</ConditionList>
 		</Action>
+		<Action sr="act1" ve="7">
+			<code>339</code>
+			<label>Local</label>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg10" val="0"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">%mc_he_local_api_endpoint/setBattery?access_token=%mc_he_access_token</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3">{ "deviceId": "%mc_he_device_id", "battery": %BATT }</Str>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="30"/>
+			<Int sr="arg9" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%mc_use_cloud</lhs>
+					<op>0</op>
+					<rhs>no</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
 	</Task>
 	<Task sr="task22">
 		<cdate>1690836321366</cdate>
@@ -2842,11 +3149,22 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 	</Task>
 	<Task sr="task27">
 		<cdate>1691098448607</cdate>
-		<edate>1699752484256</edate>
+		<edate>1699909971495</edate>
 		<id>27</id>
-		<nme>🌐 Capture Current Wi-Fi SSID</nme>
+		<nme>🌐 Wifi Changes</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%mc_track_wifi</lhs>
+					<op>0</op>
+					<rhs>yes</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%mc_wifi_info</Str>
 			<Str sr="arg1" ve="3">%WIFII</Str>
@@ -2856,22 +3174,65 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act1" ve="7">
+		<Action sr="act2" ve="7">
 			<code>590</code>
 			<Str sr="arg0" ve="3">%mc_wifi_info</Str>
 			<Str sr="arg1" ve="3">"</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 		</Action>
-		<Action sr="act2" ve="7">
+		<Action sr="act3" ve="7">
 			<code>547</code>
-			<Str sr="arg0" ve="3">%mc_wifi_ssid</Str>
+			<Str sr="arg0" ve="3">%mc_current_wifi_ssid</Str>
 			<Str sr="arg1" ve="3">%mc_wifi_info2</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%mc_use_cloud</Str>
+			<Str sr="arg1" ve="3">no</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>339</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg10" val="0"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">%mc_he_local_api_endpoint/reportWifiGroup?access_token=%mc_he_access_token</Str>
+			<Str sr="arg3" ve="3">Content-Type:application/json</Str>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3">{ "deviceId": "%mc_he_device_id", "wifiGroup": "HOME" }</Str>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="30"/>
+			<Int sr="arg9" val="0"/>
 		</Action>
 	</Task>
 	<Task sr="task28">
@@ -3243,7 +3604,7 @@ Suppressed Effects
 	</Task>
 	<Task sr="task56">
 		<cdate>1696102461378</cdate>
-		<edate>1699651242663</edate>
+		<edate>1700112956058</edate>
 		<id>56</id>
 		<nme>⚙️ Set MC HE Device Id</nme>
 		<pri>6</pri>
@@ -3353,6 +3714,83 @@ Suppressed Effects
 			<code>547</code>
 			<Str sr="arg0" ve="3">%mc_he_cloud_api_endpoint</Str>
 			<Str sr="arg1" ve="3">%http_request_body</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task7">
+		<cdate>1702098298001</cdate>
+		<edate>1702477731065</edate>
+		<id>7</id>
+		<nme>🔋Battery Level Notification</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">MC Battery Level</Str>
+			<Str sr="arg1" ve="3">The battery level has dropped down to 20%</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3"/>
+			<Img sr="arg2" ve="2">
+				<nme>mw_device_battery_20</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="6"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ConditionList sr="if">
+				<bool0>And</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%BATT</lhs>
+					<op>0</op>
+					<rhs>%mc_battery_low</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%mc_LastBatt</lhs>
+					<op>7</op>
+					<rhs>%mc_battery_low</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">MC Battery Level</Str>
+			<Str sr="arg1" ve="3">The battery level has reached 80%</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3"/>
+			<Img sr="arg2" ve="2">
+				<nme>mw_device_battery_80</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="2"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ConditionList sr="if">
+				<bool0>And</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%BATT</lhs>
+					<op>0</op>
+					<rhs>%mc_battery_high</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%mc_LastBatt</lhs>
+					<op>6</op>
+					<rhs>%mc_battery_high</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%mc_LastBatt</Str>
+			<Str sr="arg1" ve="3">%BATT</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
@@ -3576,7 +4014,7 @@ Suppressed Effects
 	</Task>
 	<Task sr="task8">
 		<cdate>1625016942242</cdate>
-		<edate>1696720624415</edate>
+		<edate>1701566098121</edate>
 		<id>8</id>
 		<nme>⏰ AR - Dismiss Alarm</nme>
 		<pri>6</pri>

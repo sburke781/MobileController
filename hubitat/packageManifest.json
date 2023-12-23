@@ -2,11 +2,11 @@
 	"packageName": "Mobile Controller",
 	"minimumHEVersion": "2.2.1",
 	"author": "Simon Burke (sburke781)",
-	"version": "0.1.3",
-	"dateReleased": "2023-11-12",
+	"version": "0.1.4",
+	"dateReleased": "2023-12-23",
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
-	"releaseNotes": "2022-11-11: 0.1.3 - Initial release",
+	"releaseNotes": "2023-12-23: 0.1.4 - Initial release",
 	"bundles": [
 		{
 		   "id": "868bab8e-5c70-4801-a039-491027904c07",
@@ -21,11 +21,6 @@
 		  "id": "8eb67fd9-1538-4182-b3f1-9440b5418a4b",
 		  "name": "Mobile_Controller.prj.xml",
 		  "location": "https://raw.githubusercontent.com/sburke781/MobileController/master/Tasker/Mobile_Controller.prj.xml"
-		},
-		{
-			"id": "9db67dd9-1638-4192-b3f1-9440b5418a5c",
-			"name": "Mobile_Controller_ARLite.prj.xml",
-			"location": "https://raw.githubusercontent.com/sburke781/MobileController/master/Tasker/Mobile_Controller_ARLite.prj.xml"
-		  }
+		}
 	  ]
 }

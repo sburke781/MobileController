@@ -41,6 +41,7 @@ def uninstalled() {
 mappings { 
     path("/setBattery") { action: [ POST: "setBattery" ] }
     path("/deviceHeartbeat") { action: [ POST: "deviceHeartbeat" ] }
+    path("/reportWifiGroup") { action: [ POST: "reportWifiGroup" ] }
 }
 
 def setBattery() { 
@@ -66,6 +67,12 @@ def deviceHeartbeat() {
     device.deviceHeartbeat();
 }
 
+def reportWifiGroup() {
+    def body = new groovy.json.JsonSlurper().parseText(request.body);
+    def device = getChildDevices()?.find { it.deviceNetworkId == body.deviceId };
+    device.reportWifiGroup(body.wifiGroup);
+}
+
 def getLocalUri() {
     return getFullLocalApiServerUrl();
 }
@@ -82,13 +89,13 @@ def mainPage(){
     
     dynamicPage (name: "mainPage", title: "", install: true, uninstall: true) {
         if (app.getInstallationState() == 'COMPLETE') {   
-            section("Mobile Devices", hideable: true, hidden: false){
+            section("", hideable: false, hidden: false){
                 //pageMobileDevicesConfig
                 href     name: "hrefMobileDevicesConfig",
                          page: "pageMobileDevicesConfig",
                        params: [:],
-                        title: "Mobile Devices Configuration",
-                  description: "<span style=\"padding-left: 33px;\">Click to configure...</span>",
+                        title: "Mobile Device Configuration",
+                  description: "<span style=\"padding-left: 33px;\">Click to configure a new device...</span>",
                         state:  null
             }
             section("Change Application Name", hideable: true, hidden: true){
@@ -112,10 +119,9 @@ def mainPage(){
 }
 
 def pageMobileDevicesConfig(params) {
-    dynamicPage (name: "pageMobileDevicesConfig", title: "Mobile Devices Configuration", install: false, uninstall: false) {
+    dynamicPage (name: "pageMobileDevicesConfig", title: "Mobile Device Configuration", install: false, uninstall: false) {
         section("") {
             
-            input ("mobileDevice", "device.MCMobileDevice",    title: "Mobile Devices:", multiple: true, required: false, submitOnChange: true)
             input ("newMobileName", "string", title: "New Mobile Device Name",     required: true, submitOnChange: true)
             input ("newMobileIPAddress", "string", title: "New Mobile Device IP Address",     required: true, submitOnChange: true)
             input ("createMobileDevice", "button", title: "Create Mobile Device")
@@ -134,5 +140,4 @@ def createMobileDevice() {
     def dni = "mobileDevice${new Date()}";
     def newMobileDevice = addChildDevice("simnet", "Mobile Device", dni, 1234, ["name": "${newMobileName}", isComponent: false]);
     newMobileDevice.updateSetting("DeviceIPAddress",[value: "${newMobileIPAddress}", type: 'string']);
-    
 }
