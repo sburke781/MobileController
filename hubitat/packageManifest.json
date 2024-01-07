@@ -2,11 +2,11 @@
 	"packageName": "Mobile Controller",
 	"minimumHEVersion": "2.2.1",
 	"author": "Simon Burke (sburke781)",
-	"version": "0.1.4",
-	"dateReleased": "2023-12-23",
+	"version": "0.2.0",
+	"dateReleased": "2024-01-08",
 	"documentationLink": "https://github.com/sburke781/MobileController",
 	"communityLink": "",
-	"releaseNotes": "2023-12-23: 0.1.4 - Initial release",
+	"releaseNotes": "2023-12-23: 0.1.4 - Initial release\n2024-01-08: 0.2.0 - Improved Setup, media controls, notification settings",
 	"bundles": [
 		{
 		   "id": "868bab8e-5c70-4801-a039-491027904c07",
