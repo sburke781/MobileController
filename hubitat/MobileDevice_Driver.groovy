@@ -28,9 +28,9 @@ metadata {
         //capability 'MotionSensor'
         //capability 'PresenceSensor'
         capability 'AudioVolume'
+        capability "MusicPlayer"
         capability 'Notification'
         capability 'Configuration'
-        //capability 'Switch'
         
         
         // Battery Sensor Attributes
@@ -51,7 +51,6 @@ metadata {
         attribute 'switch', 'ENUM ["on", "off"]'
         
         //Network Attributes
-        //attribute 'wifiNetwork', 'string' // Wi-Fi Netowrk SSID the mobile device is currently connected to
         attribute 'wifiGroup', 'string'  // Name for the group the current SSID sits in, e.g. HOME, WORK, etc
         
         
@@ -85,6 +84,25 @@ metadata {
         command 'volumeDown'
         command 'volumeUp'
         
+        // Music Player Capability Commands
+        command 'previousTrack'
+        command 'nextTrack'
+        command 'pause'
+        command 'play'
+        command 'stop'
+        command 'setLevel', [[name:'volumelevel', type: 'NUMBER', description: 'Enter the new volume value (0-25)' ] ]
+        
+        // These commands will not be supported        
+        //command 'playText', [[name:'text', type: 'string', description: 'Enter the text to play' ] ]
+        //command 'playTrack', [[name:'trackuri', type: 'string', description: 'Enter the track URL/URI to play' ] ]
+        //command 'restoreTrack', [[name:'trackuri', type: 'string', description: 'Enter the track URL/URI to restore' ] ]
+        //command 'resumeTrack', [[name:'trackuri', type: 'string', description: 'Enter the track URL/URI to play' ] ]
+        //command 'setTrack', [[name:'trackuri', type: 'string', description: 'Enter the track URL/URI' ] ]
+        
+        // These commands are listed under the Audio Volume capability commands
+        //command 'mute'
+        //command 'unmute'
+        
         //Notification Capability Command
         command 'deviceNotification', [[name:'text', type: 'STRING', description: 'Enter the notification text' ] ]
         
@@ -94,12 +112,13 @@ metadata {
         //Cancel a notification sent to the device
         command 'cancelNotification', [[name:'title', type: 'STRING', description: 'Enter the title for the notification to cancel' ] ]
         
+        //Notification Settings commands
+        command 'notificationVibrate'
+        command 'notificationSound'
+        command 'notificationMute'
+        
         //Alarm Commands
         command 'dismissAlarm', [[name:'label', type: 'STRING', description: 'Enter the label for the alarm to dismiss' ] ]
-        
-        //Switch Capability Commands
-        //command 'off'
-        //command 'on'
         
         //Custom Screen Commands
         command 'turnScreenOn'
@@ -130,9 +149,6 @@ metadata {
       input(name: "CloudComm", type: "bool", title:"Use Cloud Communications?", description: "Turn on to use cloud communications back to HE when not on Wi-Fi", displayDuringSetup: true, defaultValue: false)
       
       input(name: "SyncHEMode", type: "bool", title:"Sync HE Mode?", description: "Turn on to send HE mode updates to the mobile device", displayDuringSetup: true, defaultValue: false)
-      //input(name: "TrackWIFINetwork", type: "bool", title:"Track Mobile Device Wi-Fi Network?", description: "Record Wi-Fi Network SSID of the mobile device (only whitelisted SSID's)", displayDuringSetup: true, defaultValue: false)
-      //input(name: "HomeWifiList", type: "string", title:"Home Wi-Fi Network SSID List", description: "List of SSID's to track under the HOME Group, separated by a /", displayDuringSetup: true, defaultValue: "")
-      //input(name: "AltWifiList", type: "string", title:"Alternate Wi-Fi Network SSID List", description: "List of SSID's to track under the Alternate Group, separated by a /", displayDuringSetup: true, defaultValue: "")
       
       //input(name: "TrackCallStatus", type: "bool", title:"Track Mobile Device Call Status?", description: "Turn on to track whether the mobile device is in a call or not", displayDuringSetup: true, defaultValue: false)
       //input(name: "TrackMissedCalls", type: "bool", title:"Track Mobile Device Missed Calls?", description: "Turn on to track whether the mobile device has any missed calls", displayDuringSetup: true, defaultValue: false)
@@ -193,39 +209,6 @@ void reportWifiGroup(String groupName) {
     setLastUpdate();
 }
 
-//Motion Sensor Methods
-/*
-void active() {
-    sendEvent(name: 'motion', value: 'active');
-    debugLog('active: Device reported as being active');
-
-    setLastUpdate();
-}
-
-
-void inactive() {
-    sendEvent(name: 'motion', value: 'inactive');
-    infoLog('inactive: Device reported as being inactive');
-    
-    setLastUpdate();
-}
-
-//Presence Sensor Methods
-void present() {
-    sendEvent(name: 'presence', value: 'present');
-    debugLog('present: Device is present');
-
-    setLastUpdate();
-}
-
-void notPresent() {
-    sendEvent(name: 'presence', value: 'not present');
-    debugLog('notPresent: Device is not present');
-
-    setLastUpdate();
-}
-*/
-
 void syncMode(String newMode) {
     if(SyncHEMode) {
         if(CommandMethod == "Tasker"){ sendTaskerCommand("mode/record", newMode); }
@@ -235,6 +218,8 @@ void syncMode(String newMode) {
 
 //Battery Sensor Methods
 void setBattery(Number pbattery) {
+    debugLog("setBattery: New battery reading is ${pbattery}");
+    
     String vbatteryStatus = getBatteryStatus()
 
     //Check that the reading is within the 0 - 100 range for a percentage value
@@ -247,13 +232,14 @@ void setBattery(Number pbattery) {
         //Update the battery and batteryStatus attributes
         sendEvent(name: 'battery',       value: pbattery)
         sendEvent(name: 'batteryStatus', value: vbatteryStatus)
+        debugLog("setBattery: Battery attribute updated to ${pbattery} and status to ${vbatteryStatus}");
         
         setLastUpdate();
 
         //Reset warning count if there have been previous warnings
         if (state.warningCount > 0) {
             state.warningCount = 0
-            log.info('setBattery: warning count reset')
+            infoLog('setBattery: warning count reset')
         }
     }
     // If the battery reading is outside the 0 - 100 range, log a warning and leave the current reading in place
@@ -261,7 +247,7 @@ void setBattery(Number pbattery) {
     else {
         if (state.warningCount < 10) {
             state.warningCount = state.warningCount + 1
-            log.warn("setBattery: Warning (${state.warningCount}) - battery level outside of 0-100 range, device not updated.  Battery value provided = ${pBattery}")
+            warnLog("setBattery: Warning (${state.warningCount}) - battery level outside of 0-100 range, device not updated.  Battery value provided = ${pBattery}")
         }
     }
 }
@@ -322,6 +308,94 @@ void volumeUp() {
     setLastUpdate();
 }
 
+
+//Music Player Methods
+
+void previousTrack() {
+ 
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("media/previousTrack", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaPreviousTrack", ""); }
+    
+    infoLog("Previous Track was selected");
+    setLastUpdate();
+}
+
+void nextTrack() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("media/nextTrack", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaNextTrack", ""); }
+    
+    infoLog("Next Track was selected");
+    setLastUpdate();
+}
+
+void pause() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("media/pause", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaPause", ""); }
+    
+    infoLog("Pause was selected");
+    setLastUpdate();
+}
+
+void play() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("media/play", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaPlay", ""); }
+    
+    infoLog("Play was selected");
+    setLastUpdate();
+}
+
+void stop() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("media/stop", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("mediaStop", ""); }
+    
+    infoLog("Stop was selected");
+    setLastUpdate();
+}
+
+
+void setLevel(volumelevel) {
+    
+    setVolume(volumelevel);
+}
+        
+        
+//Notification Settings Methods
+void notificationVibrate() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/vibrate", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("notifyVibrate", ""); }
+    
+    infoLog("Notifications will now use Vibrate setting");
+    setLastUpdate();
+}
+
+void notificationSound() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/sound", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("notifySound", ""); }
+    
+    infoLog("Notifications will now use Sound setting");
+    setLastUpdate();
+}
+
+void notificationMute() {
+    
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/mute", ""); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("notifyMute", ""); }
+    
+    infoLog("Notifications will now use Mute setting");
+    setLastUpdate();
+}
+
+
+
+
+
+
 //Notification Methods
 void deviceNotification(String text) {
     if(CommandMethod == "Tasker"){ sendTaskerCommand("notifications/notify", "Mobile Controller||${text}"); }
@@ -350,22 +424,6 @@ void cancelNotification(String title) {
     setLastUpdate();
 }
 
-//Switch Methods
-/*
-void on() {
-    sendEvent(name: 'switch', value: 'On');
-
-    infoLog("on: Device turned on");    
-    setLastUpdate();
-}
-
-void off() {
-    sendEvent(name: 'switch', value: 'Off');
-
-    infoLog("off: Device turned off");
-    setLastUpdate();
-}
-*/
 
 //Custom Screen Methods
 void turnScreenOn() {
@@ -383,16 +441,6 @@ void turnScreenOff() {
     infoLog("Device screen has been turned off");
     setLastUpdate();
 }
-
-//Wi-Fi Network Methods
-/*
-void updateWifiNetwork(String wifiNetwork) {
-    sendEvent(name: 'wifiNetwork', value: wifiNetwork);
-    infoLog("updateWifiNetwork: Device Wi-Fi Network updated, new value = ${wifiNetwork}");
-    
-    setLastUpdate();
-}
-*/
 
 // Alarm Methods
 def dismissAlarm(String label){
@@ -421,6 +469,7 @@ def setLastUpdate() {
 
 //Tasker and AutoRemote Command Methods
 def sendTaskerCommand(String path, String body){
+    debugLog("sendTaskerCommand: Path = ${path}, Body = ${body}, IP Address = ${DeviceIPAddress}, Port = ${Port}, MC URL = ${mcURLPath()}");
     try {
         httpPost([uri: "http://${DeviceIPAddress}:${Port}/${mcURLPath()}/${path}", contentType: "application/json", body: "${body}"]) { resp ->
             debugLog("sendTaskerCommand: Command sent.  Response = ${resp.data}")
