@@ -117,6 +117,10 @@ metadata {
         command 'notificationSound'
         command 'notificationMute'
         
+        //Do Not Disturb commands
+        command 'doNotDisturbOn', [[name:'setting', type: 'STRING', description: 'Enter the do not disturb setting (noInt, priority or alarms)' ] ]
+        command 'doNotDisturbOff'
+        
         //Alarm Commands
         command 'dismissAlarm', [[name:'label', type: 'STRING', description: 'Enter the label for the alarm to dismiss' ] ]
         
@@ -421,6 +425,24 @@ void cancelNotification(String title) {
     
     infoLog("Device notification has been cancelled");
     debugLog("cancelNotification: Notification cancelled with title = ${title}");
+    setLastUpdate();
+}
+
+//Do Not Disturb Methods
+
+void doNotDisturbOn(String setting) {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("donotdisturb", setting); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("setDoNotDisturb", setting); }
+    
+    infoLog("Do Not Disturb has been turned on");
+    setLastUpdate();    
+}
+
+void doNotDisturbOff() {
+    if(CommandMethod == "Tasker"){ sendTaskerCommand("donotdisturb", "allowAll"); }
+    if(CommandMethod == "AutoRemote"){ sendAutoRemoteCommand("setDoNotDisturb", "allowAll"); }
+    
+    infoLog("Do Not Disturb has been turned off");
     setLastUpdate();
 }
 
