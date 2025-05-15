@@ -54,6 +54,7 @@ mappings {
     path("/settings/messageMonitoring") { action: [POST: "reportMessageMonitoring" ] }
     path("/settings/bluetoothMonitoring") { action: [POST: "reportBluetoothMonitoring" ] }
     path("/settings/wifiMonitoring") { action: [POST: "reportWifiMonitoring" ] }
+    path("/settings/allowVPN") { action: [POST: "allowVPN" ] }
     path("/bt/statusReport") { action: [POST: "btStatusReport" ] }
 }
 
@@ -111,8 +112,8 @@ void messagesUnread()     { callHEDevice('messagesUnread', 'Messages unread even
 void messagesNoneUnread() { callHEDevice('messagesNoneUnread', 'No unread messages event', '', request) }
 
 // ####################################################################
-// Reporting of Changes in Monitoring Settings on the Device
-//   Methods relating to reports from the mobile device when a change has been applied to monitoring settings
+// Reporting of Changes in Settings on the Device
+//   Methods relating to reports from the mobile device when a change has been applied to settings
 //   on the mobile device, such as the user choosing to allow call monitoring or bluetooth monitoring
 //   These reports will trigger methods on the HE device to reflect this setting change having been made
 
@@ -120,6 +121,7 @@ void reportCallMonitoring()      { callHEDevice('callMonitoring', 'Call Monitori
 void reportMessageMonitoring()   { callHEDevice('reportMessageMonitoring', 'Message Monitoring change', 'body.messageMonitoring', request) }
 void reportBluetoothMonitoring() { callHEDevice('reportBluetoothMonitoring', 'Bluetooth Monitoring change', 'body.bluetoothMonitoring', request) }
 void reportWifiMonitoring()      { callHEDevice('reportWifiMonitoring', 'Wi-Fi Monitoring change', 'body.wifiMonitoring', request) }
+void reportAllowVPN()            { callHEDevice('reportAllowVPN', 'Allow VPN change', 'body.allowVPN', request) }
 
 // ####################################################################
 // Status Report and Heartbeat Methods
@@ -247,9 +249,9 @@ def pageDeviceConfiguration(params) {
     app.updateSetting("wifiMonitor", [value:mobileDevice.getWifiMonitoring()]);
     app.updateSetting("callMonitor", [value:mobileDevice.getCallMonitoring()]);
     app.updateSetting("msgMonitor", [value:mobileDevice.getMessageMonitoring()]);
+    app.updateSetting("allowVPN", [value:mobileDevice.getAllowVPN()]);
     app.updateSetting("controlModes", [value:mobileDevice.getCanControlHEMode()]);
-    
-    
+        
     dynamicPage (name: "pageDeviceConfiguration", title: "Mobile Device Configuration", nextPage: "pageApplyConfiguration", install: false, uninstall: false) {
         section("") {
             paragraph "Select the permissions you want to grant for Mobile Controller on your mobile device: ${tooltipStyle}"
@@ -258,10 +260,10 @@ def pageDeviceConfiguration(params) {
             input ("callMonitor", "bool", title: "Monitor Calls? ${getZindexToggle('callMonitor')} ${getTooltipHTML('Call Monitoring', 'Allow Mobile Controller to detect incoming, ongoing and missed calls, reporting the call status to HE.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#call-monitoring')}",     required: true, submitOnChange: true)
             input ("msgMonitor", "bool", title: "Monitor Messages? ${getZindexToggle('msgMonitor')} ${getTooltipHTML('Message Monitoring', 'Allow Mobile Controller to detect new or unread SMS/MMS messages on the mobile device, reporting the status back to HE.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#message-monitoring')}",     required: true, submitOnChange: true)
             input ("syncModes", "bool", title: "Synchronize HE Modes? ${getZindexToggle('syncModes')} ${getTooltipHTML('Synchronizing HE Modes', 'Changes to the HE mode will be communicated to and stored on the mobile device, allowing use of the mode in custom automations on the mobile device.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#synchronizing-he-modes')}",     required: true, submitOnChange: true)
-            input ("controlModes", "bool", title: "Allow Control of HE Mode From The Device? ${getZindexToggle('controlModes')} ${getTooltipHTML('Control HE Modes', 'Allows changes to the HE mode to be initiated on the mobile device through elements such as a home-screen widget.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#control-he-modes')}",     required: true, submitOnChange: true)
+            input ("controlModes", "bool", title: "Allow Control of HE Mode? ${getZindexToggle('controlModes')} ${getTooltipHTML('Control HE Modes', 'Allows changes to the HE mode to be initiated on the mobile device through elements such as a home-screen widget.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#control-he-modes')}",     required: true, submitOnChange: true)
             input ("cloudComms", "bool", title: "Allow Cloud Communication? ${getZindexToggle('cloudComms')} ${getTooltipHTML('Cloud Communication', 'Allows the mobile controller to send status updates and other commands from the mobile device when not connected to the HE hub over a local Wi-Fi or VPN connection.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#cloud-communication')}",     required: true, submitOnChange: true)
-            input ("useVPN", "bool", title: "Communicate using VPN Connection When Available? ${getZindexToggle('useVPN')} ${getTooltipHTML('VPN Connection', 'If a VPN connection is available (connected) on the mobile device, this will be used when communicating from HE to the mobile device.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#vpn-connection')}",     required: true, submitOnChange: true)
-            input ("vpnIP", "string", title: "Mobile Device VPN IP Address",     required: false, submitOnChange: true)
+            input ("allowVPN", "bool", title: "Allow VPN Communication? ${getZindexToggle('allowVPN')} ${getTooltipHTML('VPN Communication', 'If a VPN connection is available (connected) on the mobile device, this will be used when communicating from HE to the mobile device.', 'https://github.com/sburke781/MobileController/blob/master/Settings.md#vpn-connection')}",     required: true, submitOnChange: true)
+            input ("vpnIP", "string", title: "Mobile Device IP Address on VPN",     required: false, submitOnChange: true)
             paragraph "Click Next to apply the configuration settings to your mobile device"
         }
     }

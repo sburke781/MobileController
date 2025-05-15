@@ -141,7 +141,7 @@ metadata {
       input(name: "ARPort", type: "number", title:"Auto-Remote Port Number", description: "Port used when sending Auto-Remote messages to the mobile device", displayDuringSetup: true, defaultValue: 1817)
               
       input(name: "CloudComm", type: "bool", title:"Use Cloud Communications?", description: "Turn on to use cloud communications back to HE when not on Wi-Fi", displayDuringSetup: true, defaultValue: false)
-      
+      input(name: "AllowVPN", type: "bool", title:"Use Cloud Communications?", description: "Turn on to use cloud communications back to HE when not on Wi-Fi", displayDuringSetup: true, defaultValue: false)
       input(name: "SyncHEMode", type: "bool", title:"Sync HE Mode?", description: "Turn on to send HE mode updates to the mobile device", displayDuringSetup: true, defaultValue: false)
       input(name: "CanControlHEMode", type: "bool", title:"Control HE Mode?", description: "Allow device to control HE mode", displayDuringSetup: true, defaultValue: false)
     }
@@ -166,10 +166,6 @@ void initialized() {
 void updated() {
     //Use library method to set schedule to disable debug logging if turned on
     updated_debugTimout();
-}
-
-boolean getCanControlHEMode() {
-   return CanControlHEMode; 
 }
 
 // Configuration Methods - Applying Configuration Changes on the Mobile Device
@@ -383,7 +379,11 @@ void reportWifiMonitoring(String setting) {
     state.wifiMonitor = setting;
 }
 
-// Return Current Monitoring Settings
+void reportAllowVPN(String setting) {
+    state.allowVPN = setting;
+}
+
+// Return Current Device Settings
 
 String getCallMonitoring() {
     return state.callMonitor;
@@ -399,6 +399,14 @@ String getBluetoothMonitoring() {
 
 String getWifiMonitoring() {
     return state.wifiMonitor;
+}
+
+boolean getAllowVPN() {
+    return state.allowVPN;
+}
+
+boolean getCanControlHEMode() {
+   return CanControlHEMode; 
 }
 
 // Network methods
@@ -746,7 +754,7 @@ void deviceHeartbeat() {
 
 String getDeviceIP() {
     
-    if(device.currentValue("vpn") == "on") { DeviceVPNAddress } else { DeviceIPAddress }
+    if(device.currentValue("vpn") == "on" && AllowVPN) { DeviceVPNAddress } else { DeviceIPAddress }
 }
 
 void sendTaskerCommand(String path, String body){
